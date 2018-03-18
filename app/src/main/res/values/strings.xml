@@ -3,9 +3,37 @@
     <string name="image">SPLASH_IMAGE</string>
 
     <string name="name" >Name</string>
+    <string name="slogan">Donate Blood Save Life!</string>
     <string name="password" >Password</string>
-    <string name="login_button" >LOGIN</string>
-    <string name="register_button" >REGISTER</string>
+    <string name="login_button" >LOG IN</string>
+    <string name="signup_button" >SIGN UP</string>//in loginregisterpage
+    <string name="registerpagename">NAME</string>
+    <string name="registerpagepassword">PASSWORD</string>
+    <string name="registerpageage">AGE</string>
+    <string name="registerpagebloodgroup">BLOOD GROUP</string>
+    <string name="registerpagecity">CITY</string>
+    <string name="registerpagephone">PHONE NUMBER</string>
+    <string name="registerpageemail">EMAIL</string>
+    <string name="registerpageregisterbutton">REGISTER</string>
+    <string name="registerpagecheckbox">I Want to be a Donar</string>
+    <string name="registerpageback">BACK</string>
+    <string name="main_searchdonar">Search Donar</string>
+    <string name="main_myprofile">My profile</string>
+    <string name="autocompletetextview">AutoCompleteTextView</string>
+    <string-array name="registerpage_bloodgroup">
+        <item>None</item>
+        <item>A+</item>
+        <item>B+</item>
+        <item>A-</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+    <string name="registerpage_bloodgroup">Blood Group</string>
+    <string name="MALE">MALE</string>
+    <string name="FEMALE">FEMALE</string>
 
 
 </resources>

@@ -12,15 +12,18 @@ public class loginregister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginregister);
-        Button registerbutton=(Button) findViewById(R.id.register_button);
-        registerbutton.setOnClickListener(new View.OnClickListener() {
+        Button signupbutton=(Button) findViewById(R.id.signup_button);
+        signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent registerIntent=new Intent(getApplicationContext(),register.class);
                 startActivity(registerIntent);
+                finish();
             }
         });
+
+
     }
 
 
