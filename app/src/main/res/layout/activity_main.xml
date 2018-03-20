@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#25CCF7"
+    android:background="@drawable/background"
     tools:context="com.example.lokesh.bloodline.MainActivity">
 
     <Button
@@ -16,6 +16,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="160dp"
         android:text="@string/main_searchdonar"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toTopOf="@+id/main_myprofile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +31,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
         android:text="@string/main_myprofile"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#25CCF7"
+    android:background="@drawable/background"
     tools:context="com.example.lokesh.bloodline.loginregister">
 
     <EditText
@@ -13,6 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="60dp"
+        android:background="#ecf0f1"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
@@ -28,6 +29,7 @@
         android:layout_width="300dp"
         android:layout_height="51dp"
         android:layout_marginBottom="284dp"
+        android:background="#ecf0f1"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -43,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/login_button"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/signup_button"
         app:layout_constraintHorizontal_bias="0.517"
@@ -56,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/signup_button"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@id/login_button"
