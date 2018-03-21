@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "952171285547",
+    "firebase_url": "https://bloodline-c7e48.firebaseio.com",
+    "project_id": "bloodline-c7e48",
+    "storage_bucket": "bloodline-c7e48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952171285547:android:38d4f6a44db944e8",
+        "android_client_info": {
+          "package_name": "com.example.lokesh.bloodline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952171285547-b1gmdisv9hiavee1eiltp0afcaf3oaih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzr6DtWIi66O-zdT6TknJ_Zsnp2MGSHxs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
