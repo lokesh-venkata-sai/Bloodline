@@ -14,6 +14,7 @@
         android:layout_height="38dp"
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="8dp"
+        android:drawableLeft="@drawable/act_name"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:ems="10"
@@ -25,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" android:drawableStart="@drawable/act_name"/>
 
     <EditText
         android:id="@+id/registerpagepassword"
@@ -37,13 +38,14 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/registerpagepassword"
+        android:drawableLeft="@drawable/ic_action_name"
         android:inputType="textPassword"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/registerpageage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpagename" />
+        app:layout_constraintTop_toBottomOf="@id/registerpagename" android:drawableStart="@drawable/ic_action_name"/>
 
     <EditText
         android:id="@+id/registerpageage"
@@ -55,12 +57,13 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/registerpageage"
+        android:drawableLeft="@drawable/act_age"
         android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/registerpagecity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpagepassword" />
+        app:layout_constraintTop_toBottomOf="@id/registerpagepassword" android:drawableStart="@drawable/act_age"/>
 
     <EditText
         android:id="@+id/registerpagecity"
@@ -71,6 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:ems="10"
+        android:drawableLeft="@drawable/act_city"
         android:hint="@string/registerpagecity"
         android:inputType="textPersonName"
         android:textSize="16sp"
@@ -78,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpageage" />
+        app:layout_constraintTop_toBottomOf="@id/registerpageage" android:drawableStart="@drawable/act_city"/>
 
     <EditText
         android:id="@+id/registerpagephone"
@@ -90,13 +94,14 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/registerpagephone"
+        android:drawableLeft="@drawable/act_phone"
         android:inputType="phone"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/registerpageemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpagecity" />
+        app:layout_constraintTop_toBottomOf="@id/registerpagecity" android:drawableStart="@drawable/act_phone"/>
 
     <EditText
         android:id="@+id/registerpageemail"
@@ -108,12 +113,13 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/registerpageemail"
+        android:drawableLeft="@drawable/act_email"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/registerpagecheckbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpagephone" />
+        app:layout_constraintTop_toBottomOf="@id/registerpagephone" android:drawableStart="@drawable/act_email"/>
 
     <CheckBox
         android:id="@+id/registerpagecheckbox"
