@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     tools:context="com.example.lokesh.bloodline.loginregister">
 
     <EditText
@@ -13,7 +13,6 @@
         android:layout_height="50dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="60dp"
-        android:background="#ecf0f1"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
@@ -29,7 +28,6 @@
         android:layout_width="300dp"
         android:layout_height="51dp"
         android:layout_marginBottom="284dp"
-        android:background="#ecf0f1"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
