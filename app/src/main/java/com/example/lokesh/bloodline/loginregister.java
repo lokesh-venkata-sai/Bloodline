@@ -79,9 +79,10 @@ public class loginregister extends AppCompatActivity implements View.OnClickList
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         ProgressDialog.dismiss();
                         if(task.isSuccessful()){
-                            finish();
+
                             Intent loginIntent=new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(loginIntent);
+                            finish();
 
                         }
                     }

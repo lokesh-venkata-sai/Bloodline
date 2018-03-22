@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v==logout){
             mainfirebaseAuth.signOut();
-            finish();
+
             Intent registerIntent=new Intent(getApplicationContext(),loginregister.class);
             startActivity(registerIntent);
+            finish();
         }
     }
 }
