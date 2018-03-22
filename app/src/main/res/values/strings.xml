@@ -20,6 +20,7 @@
     <string name="main_searchdonar">Search Donar</string>
     <string name="main_myprofile">My profile</string>
     <string name="autocompletetextview">AutoCompleteTextView</string>
+    <string name="logout">Log Out</string>
     <string-array name="registerpage_bloodgroup">
         <item>None</item>
         <item>A+</item>

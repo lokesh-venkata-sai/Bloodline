@@ -8,20 +8,21 @@
     tools:context="com.example.lokesh.bloodline.loginregister">
 
     <EditText
-        android:id="@+id/nametext"
+        android:id="@+id/emailtext"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/act_email"
+        android:drawableStart="@drawable/act_email"
         android:ems="10"
-        android:hint="@string/name"
-        android:drawableLeft="@drawable/act_name"
-        android:inputType="textPersonName"
+        android:hint="@string/registerpageemail"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/passwordtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" android:drawableStart="@drawable/act_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/passwordtext"
@@ -30,12 +31,13 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_action_name"
+        android:drawableStart="@drawable/ic_action_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nametext"
-        app:layout_constraintBottom_toTopOf="@id/login_button"
-        android:drawableLeft="@drawable/ic_action_name" android:drawableStart="@drawable/ic_action_name"/>
+        app:layout_constraintTop_toBottomOf="@id/emailtext"
+        app:layout_constraintBottom_toTopOf="@id/login_button" />
 
     <Button
         android:id="@+id/login_button"
@@ -73,7 +75,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toTopOf="@id/nametext"
+        app:layout_constraintBottom_toTopOf="@id/emailtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
