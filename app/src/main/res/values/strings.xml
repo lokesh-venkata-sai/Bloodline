@@ -38,6 +38,7 @@
 
     <string name="myprofilepageuserid">userid</string>
     <string name="todo">TODO</string>
+    <string name="title_activity_donar">donar</string>
 
 
 </resources>
