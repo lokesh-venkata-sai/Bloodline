@@ -33,8 +33,13 @@
         <activity
             android:name=".register"
             android:screenOrientation="portrait" />
-        <activity android:name=".profile" />
-        <activity android:name=".donar"></activity>
+        <activity 
+            android:name=".profile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".donar"
+            android:screenOrientation="portrait"
+            ></activity>
     </application>
 
 </manifest>
