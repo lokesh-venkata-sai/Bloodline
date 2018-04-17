@@ -21,6 +21,7 @@
     <string name="main_myprofile">My profile</string>
     <string name="autocompletetextview">AutoCompleteTextView</string>
     <string name="logout">Log Out</string>
+    <string name="save_prof">SAVE</string>
     <string-array name="registerpage_bloodgroup">
         <item>None</item>
         <item>A+</item>

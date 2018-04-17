@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FirebaseAuth mainfirebaseAuth;
     private Button logout;
+    private Button myprofile;
 
 
     @Override
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mainfirebaseAuth=FirebaseAuth.getInstance();
         logout =(Button) findViewById(R.id.logout);
+        myprofile =(Button) findViewById(R.id.main_myprofile);
         logout.setOnClickListener(this);
+        myprofile.setOnClickListener(this);
 
         FirebaseUser user=mainfirebaseAuth.getCurrentUser();
 
@@ -35,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Intent registerIntent=new Intent(getApplicationContext(),loginregister.class);
             startActivity(registerIntent);
+            finish();
+        }
+        if(v==myprofile)
+        {
+            Intent myprofileIntent=new Intent(getApplicationContext(),profile.class);
+            startActivity(myprofileIntent);
             finish();
         }
     }

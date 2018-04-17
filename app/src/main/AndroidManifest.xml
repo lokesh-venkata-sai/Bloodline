@@ -33,7 +33,7 @@
         <activity
             android:name=".register"
             android:screenOrientation="portrait" />
-        <activity 
+        <activity
             android:name=".profile"
             android:screenOrientation="portrait" />
         <activity

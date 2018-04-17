@@ -8,4 +8,220 @@
     tools:context="com.example.lokesh.bloodline.profile">
 
 
+    <EditText
+        android:id="@+id/name_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/act_name"
+        android:drawableStart="@drawable/act_name"
+        android:ems="10"
+        android:hint="@string/registerpagename"
+        android:inputType="textPersonName"
+        android:textColorLink="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/email_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/email_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/act_email"
+        android:drawableStart="@drawable/act_email"
+        android:ems="10"
+        android:hint="@string/registerpageemail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/age_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_prof" />
+
+    <EditText
+        android:id="@+id/age_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/act_age"
+        android:drawableStart="@drawable/act_age"
+        android:ems="10"
+        android:hint="@string/registerpageage"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/phone_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_prof" />
+
+    <EditText
+        android:id="@+id/city_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/act_city"
+        android:drawableStart="@drawable/act_city"
+        android:ems="10"
+        android:hint="@string/registerpagecity"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_prof" />
+
+    <EditText
+        android:id="@+id/phone_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/act_phone"
+        android:drawableStart="@drawable/act_phone"
+        android:ems="10"
+        android:hint="@string/registerpagephone"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/city_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/age_prof" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bloodgroup_prof"
+        app:layout_constraintEnd_toStartOf="@+id/checkbox_prof"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city_prof">
+
+        <RadioButton
+            android:id="@+id/male_prof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MALE"
+            android:textColorLink="@color/colorPrimary"
+            tools:layout_editor_absoluteX="89dp"
+            tools:layout_editor_absoluteY="376dp" />
+
+        <RadioButton
+            android:id="@+id/female_prof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/FEMALE"
+            android:textColorLink="@color/colorPrimary"
+            tools:layout_editor_absoluteX="216dp"
+            tools:layout_editor_absoluteY="376dp" />
+
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/bloodgroup_prof"
+        android:layout_width="207dp"
+        android:layout_height="32dp"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/save_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup_prof" />
+
+    <CheckBox
+        android:id="@+id/checkbox_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/registerpagecheckbox"
+        android:textColorLink="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/bloodgroup_prof"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/radioGroup_prof"
+        app:layout_constraintTop_toBottomOf="@+id/city_prof" />
+
+    <Button
+        android:id="@+id/save_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:hint="@string/save_prof"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/back_prof"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bloodgroup_prof" />
+
+    <Button
+        android:id="@+id/back_prof"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:hint="@string/registerpageback"
+        android:textColor="@android:color/background_dark"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/save_prof"
+        app:layout_constraintTop_toBottomOf="@+id/bloodgroup_prof" />
 </android.support.constraint.ConstraintLayout>
