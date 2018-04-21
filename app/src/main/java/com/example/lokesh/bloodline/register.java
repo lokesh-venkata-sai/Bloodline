@@ -39,16 +39,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        /*Button registerbutton=(Button) findViewById(R.id.registerpageregister);
-        registerbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent registerIntent=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(registerIntent);
-                finish();
-            }
-        });*/
         Button backbutton=(Button) findViewById(R.id.registerpageback);
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,50 +69,64 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void registerUser(){
-        String Email=mregEmail.getText().toString().trim();
-        String Password=mregPassword.getText().toString().trim();
-        String name=mregName.getText().toString().trim();
 
-        if(TextUtils.isEmpty(Email))
-        {
-            Toast.makeText(this,"Please Enter Email",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(Password)){
-            Toast.makeText(this,"Please Enter Password",Toast.LENGTH_SHORT).show();
-            return;
-        }
-       /* if(TextUtils.isEmpty(name)){
-            Toast.makeText(this,"Please Enter Name",Toast.LENGTH_SHORT).show();
-            return;
-        }*/
-        mProgressDialog.setMessage("Registering User....");
-        mProgressDialog.show();
+            String Email = mregEmail.getText().toString().trim();
+            String Password = mregPassword.getText().toString().trim();
+            String name = mregName.getText().toString().trim();
 
-        mFirebaseAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                mProgressDialog.dismiss();
-                if(task.isSuccessful())
-                {
-                    Toast.makeText(register.this,"registered successfully",Toast.LENGTH_SHORT).show();
-                    Intent registerIntent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(registerIntent);
-                    finish();
-                }else {
-                    Toast.makeText(register.this,"cannot register try again...",Toast.LENGTH_SHORT).show();
-                }
+            if (TextUtils.isEmpty(Email)) {
+                Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+                return;
             }
-        });
+            if (TextUtils.isEmpty(Password)) {
+                Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mProgressDialog.setMessage("Registering User....");
+            mProgressDialog.show();
+
+            mFirebaseAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    mProgressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        Toast.makeText(register.this, "registered successfully", Toast.LENGTH_SHORT).show();
+                        Intent registerIntent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(registerIntent);
+                        finish();
+                    } else {
+                        Toast.makeText(register.this, "cannot register try again...", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
 
     }
-
+    /*private int validate()
+    {
+        int result =0;
+        String name=mregName.getText().toString();
+        String mail=mregEmail.getText().toString();
+        String password=mregPassword.getText().toString();
+        String phonenumber=mregPhone.getText().toString();
+        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(mail)||TextUtils.isEmpty(password)||TextUtils.isEmpty(phonenumber))
+        {
+            //Toast.makeText(register.this,"Please fill mandatory fields",Toast.LENGTH_SHORT).show();
+        }else
+        {
+            result=1;
+        }
+        return result;
+    }*/
     @Override
     public void onClick (View view)
     {
-        if(view == mregRegister)
+        if(view == mregRegister )
         {
+
             registerUser();
+
         }
 
     }

@@ -2,18 +2,18 @@
     <string name="app_name">Bloodline</string>
     <string name="image">SPLASH_IMAGE</string>
 
-    <string name="name">Name</string>
+    <string name="name">Name*</string>
     <string name="slogan">Donate Blood Save Life!</string>
-    <string name="password">Password</string>
+    <string name="password">Password*</string>
     <string name="login_button">LOG IN</string>
     <string name="signup_button">SIGN UP</string>//in loginregisterpage
-    <string name="registerpagename">NAME</string>
-    <string name="registerpagepassword">PASSWORD</string>
-    <string name="registerpageage">AGE</string>
-    <string name="registerpagebloodgroup">BLOOD GROUP</string>
-    <string name="registerpagecity">CITY</string>
-    <string name="registerpagephone">PHONE NUMBER</string>
-    <string name="registerpageemail">EMAIL</string>
+    <string name="registerpagename">NAME*</string>
+    <string name="registerpagepassword">PASSWORD*</string>
+    <string name="registerpageage">AGE*</string>
+    <string name="registerpagebloodgroup">BLOOD GROUP*</string>
+    <string name="registerpagecity">CITY*</string>
+    <string name="registerpagephone">PHONE NUMBER*</string>
+    <string name="registerpageemail">EMAIL*</string>
     <string name="registerpageregisterbutton">REGISTER</string>
     <string name="registerpagecheckbox">I Want to be a Donar</string>
     <string name="registerpageback">BACK</string>

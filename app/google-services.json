@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "952171285547-6tmudks4kffja0gmlp84qnnt88n2lh67.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lokesh.bloodline",
+            "certificate_hash": "e29ef52481d239e8996700191f96ac5b9420e602"
+          }
+        },
+        {
           "client_id": "952171285547-b1gmdisv9hiavee1eiltp0afcaf3oaih.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952171285547-b1gmdisv9hiavee1eiltp0afcaf3oaih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
