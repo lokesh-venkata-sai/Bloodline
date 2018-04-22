@@ -21,30 +21,25 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class register extends AppCompatActivity implements View.OnClickListener{
+public class register extends AppCompatActivity
+{
 
-    private EditText mregName;
-    private EditText mregEmail;
-    private EditText mregPassword;
-    private EditText mregAge;
-    private EditText mregCity;
-    private EditText mregPhone;
-    private CheckBox mregCheckbox;
-    private RadioGroup mregRadioGroup;
-    private Spinner mregSpinner;
-    private Button mregRegister;
+    private EditText Name,Password,mage,mcity,EmailID;
+    private Button reg_button;
+    private FirebaseAuth firebaseAuth;
     private ProgressDialog mProgressDialog;
-    private FirebaseAuth mFirebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        setupUIVews();
+
 
         Button backbutton=(Button) findViewById(R.id.registerpageback);
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent myIntent=new Intent(getApplicationContext(),loginregister.class);
                 startActivity(myIntent);
                 finish();
@@ -57,77 +52,64 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         myadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         bloodgroup.setAdapter(myadapter);
 
+        mProgressDialog=new ProgressDialog(this);
 
-        mProgressDialog =new ProgressDialog(this);
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-        mregRegister =(Button) findViewById(R.id.registerpageregister);
-        mregName =(EditText) findViewById(R.id.registerpagename);
-        mregEmail =(EditText) findViewById(R.id.registerpageemail);
-        mregPassword =(EditText) findViewById(R.id.registerpagepassword);
-
-        mregRegister.setOnClickListener(this);
-    }
-
-    private void registerUser(){
-
-            String Email = mregEmail.getText().toString().trim();
-            String Password = mregPassword.getText().toString().trim();
-            String name = mregName.getText().toString().trim();
-
-            if (TextUtils.isEmpty(Email)) {
-                Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (TextUtils.isEmpty(Password)) {
-                Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            mProgressDialog.setMessage("Registering User....");
-        mProgressDialog.show();
-
-        mFirebaseAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                mProgressDialog.dismiss();
-                if (task.isSuccessful()) {
-                    Toast.makeText(register.this, "registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent registerIntent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(registerIntent);
-                    finish();
-                } else {
-                    Toast.makeText(register.this, "cannot register try again...", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                if(validate()){
+                    //upload data to database
+                    mProgressDialog.setMessage("Registering User....");
+                    mProgressDialog.show();
+
+
+                    String email = EmailID.getText().toString().trim();
+                    String password = Password.getText().toString().trim();
+                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            mProgressDialog.dismiss();
+
+                            if(task.isSuccessful()) {
+
+                                Toast.makeText(register.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(register.this, loginregister.class));
+                            }else{
+                                Toast.makeText(register.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
             }
         });
 
-
     }
-    /*private int validate()
-    {
-        int result =0;
-        String name=mregName.getText().toString();
-        String mail=mregEmail.getText().toString();
-        String password=mregPassword.getText().toString();
-        String phonenumber=mregPhone.getText().toString();
-        if(TextUtils.isEmpty(name)||TextUtils.isEmpty(mail)||TextUtils.isEmpty(password)||TextUtils.isEmpty(phonenumber))
-        {
-            //Toast.makeText(register.this,"Please fill mandatory fields",Toast.LENGTH_SHORT).show();
-        }else
-        {
-            result=1;
+    private void setupUIVews(){
+        Name= (EditText)findViewById(R.id.registerpagename);
+        Password= (EditText)findViewById(R.id.registerpagepassword);
+        mage= (EditText)findViewById(R.id.registerpageage);
+        mcity= (EditText)findViewById(R.id.registerpagecity);
+        EmailID = (EditText)findViewById(R.id.registerpageemail);
+        reg_button =(Button)findViewById(R.id.registerpageregister);
+    }
+
+    private Boolean validate(){
+        Boolean result = false;
+
+        String name=Name.getText().toString();
+        String password=Password.getText().toString();
+        String age=mage.getText().toString();
+        String email=EmailID.getText().toString();
+        String city=mcity.getText().toString();
+
+        if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || city.isEmpty()){
+            Toast.makeText(this, "please enter all the details",Toast.LENGTH_SHORT).show();
+        }else{
+            result = true;
         }
         return result;
-    }*/
-    @Override
-    public void onClick (View view)
-    {
-        if(view == mregRegister )
-        {
-            registerUser();
-
-        }
-
     }
+
+
 }
