@@ -124,6 +124,7 @@ public class register extends AppCompatActivity
          phone    = mPhone.getText().toString();
 
 
+
         if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || city.isEmpty()){
             Toast.makeText(this, "please enter all the details",Toast.LENGTH_SHORT).show();
         }else{
@@ -141,7 +142,7 @@ public class register extends AppCompatActivity
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
       DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid());
       //FirebaseUser user =firebaseAuth.getCurrentUser();
-      dUserprofile userprofile = new dUserprofile(age,name,email,phone,city);
+      dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender);
         //mDatabaseReference.child(user.getUid()).setValue(userprofile);
 
       myref.setValue(userprofile);

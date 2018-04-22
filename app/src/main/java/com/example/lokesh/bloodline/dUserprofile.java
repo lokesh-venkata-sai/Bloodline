@@ -6,15 +6,17 @@ public class dUserprofile {
     public String user_email;
     public String user_phone;
     public String user_city;
+    public String user_gender;
   //  public String user_donar_status;
    // public String user_gender;
 
-    public dUserprofile(String user_age, String user_name, String user_email, String user_phone, String user_city) {
+    public dUserprofile(String user_age, String user_name, String user_email, String user_phone, String user_city,String user_gender) {
         this.user_age = user_age;
         this.user_name = user_name;
         this.user_email = user_email;
         this.user_phone = user_phone;
         this.user_city = user_city;
+        this.user_gender=user_gender;
 
     }
 
@@ -58,4 +60,11 @@ public class dUserprofile {
         return user_city;
     }
 
+    public String getUser_gender() {
+        return user_gender;
+    }
+
+    public void setUser_gender(String user_gender) {
+        this.user_gender = user_gender;
+    }
 }
