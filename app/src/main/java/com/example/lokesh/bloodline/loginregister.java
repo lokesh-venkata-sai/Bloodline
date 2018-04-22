@@ -30,7 +30,7 @@ public class loginregister extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginregister);
 
-        Button signupbutton=(Button) findViewById(R.id.signup_button);
+        Button signupbutton =(Button) findViewById(R.id.signup_button);
 
         signupbutton.setOnClickListener(new View.OnClickListener() {
             @Override
