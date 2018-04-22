@@ -50,6 +50,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
                 finish();
             }
         });
+
         Spinner bloodgroup=(Spinner) findViewById(R.id.registerpage_bloodgroup);
         ArrayAdapter<String> myadapter=new ArrayAdapter<String>(register.this,
                 android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.registerpage_bloodgroup));
@@ -84,22 +85,22 @@ public class register extends AppCompatActivity implements View.OnClickListener{
             }
 
             mProgressDialog.setMessage("Registering User....");
-            mProgressDialog.show();
+        mProgressDialog.show();
 
-            mFirebaseAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    mProgressDialog.dismiss();
-                    if (task.isSuccessful()) {
-                        Toast.makeText(register.this, "registered successfully", Toast.LENGTH_SHORT).show();
-                        Intent registerIntent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(registerIntent);
-                        finish();
-                    } else {
-                        Toast.makeText(register.this, "cannot register try again...", Toast.LENGTH_SHORT).show();
-                    }
+        mFirebaseAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                mProgressDialog.dismiss();
+                if (task.isSuccessful()) {
+                    Toast.makeText(register.this, "registered successfully", Toast.LENGTH_SHORT).show();
+                    Intent registerIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(registerIntent);
+                    finish();
+                } else {
+                    Toast.makeText(register.this, "cannot register try again...", Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+        });
 
 
     }
@@ -124,7 +125,6 @@ public class register extends AppCompatActivity implements View.OnClickListener{
     {
         if(view == mregRegister )
         {
-
             registerUser();
 
         }
