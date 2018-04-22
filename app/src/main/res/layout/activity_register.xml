@@ -162,7 +162,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:hint="@string/registerpageregisterbutton"
         android:textColor="@color/colorPrimary"
@@ -170,7 +170,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/registerpageback"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerpageuserid" />
+        app:layout_constraintTop_toBottomOf="@+id/registerpage_bloodgroup" />
 
     <Button
         android:id="@+id/registerpageback"
@@ -179,7 +179,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:text="@string/registerpageback"
         android:textColor="@color/colorPrimary"
@@ -188,21 +188,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@id/registerpageregister"
         app:layout_constraintRight_toLeftOf="@id/registerpageregister"
-        app:layout_constraintTop_toBottomOf="@id/registerpageuserid" />
-
-    <AutoCompleteTextView
-        android:id="@+id/registerpageuserid"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/autocompletetextview"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/registerpageregister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerpage_bloodgroup" />
 
     <RadioGroup
@@ -243,14 +228,13 @@
         android:id="@+id/registerpage_bloodgroup"
         android:layout_width="207dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toTopOf="@id/registerpageuserid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerpagecheckbox" />
+        app:layout_constraintTop_toBottomOf="@+id/registerpagecheckbox"
+        app:layout_constraintBottom_toTopOf="@id/registerpageregister"/>
 
 
 </android.support.constraint.ConstraintLayout>
