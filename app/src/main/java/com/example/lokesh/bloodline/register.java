@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -32,11 +33,14 @@ public class register extends AppCompatActivity
     private FirebaseAuth firebaseAuth;
     private ProgressDialog mProgressDialog;
     private CheckBox mdonar;
-    private RadioGroup mgender;
+
     private Spinner mbloodgroup;
+    private RadioButton male,female;
     private RadioButton radiobutton;
 
-    String name,email,password,age,city,phone,gender,donar,bloodgroup;
+
+    String name,email,password,age,city,phone,gender,bloodgroup_record;
+    boolean donar,bg;
     private DatabaseReference mDatabaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +59,12 @@ public class register extends AppCompatActivity
             }
         });
 
-        Spinner bloodgroup=(Spinner) findViewById(R.id.registerpage_bloodgroup);
+
         ArrayAdapter<String> myadapter=new ArrayAdapter<String>(register.this,
                 android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.registerpage_bloodgroup));
         myadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        bloodgroup.setAdapter(myadapter);
+        mbloodgroup.setAdapter(myadapter);
+
 
         mProgressDialog=new ProgressDialog(this);
         mDatabaseReference=FirebaseDatabase.getInstance().getReference();
@@ -70,10 +75,8 @@ public class register extends AppCompatActivity
                 if(validate()){
                     //upload data to database
 
-
                     mProgressDialog.setMessage("Registering User....");
                     mProgressDialog.show();
-
 
                     String email = EmailID.getText().toString().trim();
                     String password = Password.getText().toString().trim();
@@ -106,12 +109,13 @@ public class register extends AppCompatActivity
         EmailID = (EditText)findViewById(R.id.registerpageemail);
         reg_button =(Button)findViewById(R.id.registerpageregister);
         mPhone = (EditText) findViewById(R.id.registerpagephone);
-       mgender = (RadioGroup) findViewById(R.id.radioGroup) ;
+        
         mdonar = (CheckBox) findViewById(R.id.registerpagecheckbox);
-        mbloodgroup = (Spinner) findViewById(R.id.registerpage_bloodgroup);
+        mbloodgroup=(Spinner) findViewById(R.id.registerpage_bloodgroup);
+        male=(RadioButton) findViewById(R.id.registerpage_male);
+        female=(RadioButton) findViewById(R.id.registerpage_female);
 
-
-    }
+        }
 
     private Boolean validate(){
         Boolean result = false;
@@ -122,30 +126,39 @@ public class register extends AppCompatActivity
          email    = EmailID.getText().toString();
          city     = mcity.getText().toString();
          phone    = mPhone.getText().toString();
+         donar    = mdonar.isChecked();
+
+         if(male.isChecked())
+             gender="male";
+         if(female.isChecked())
+             gender="female";
 
 
+         bloodgroup_record = mbloodgroup.getSelectedItem().toString();
+            bg =mbloodgroup.getSelectedItem().toString().equalsIgnoreCase("none");
 
         if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || city.isEmpty()){
+
             Toast.makeText(this, "please enter all the details",Toast.LENGTH_SHORT).show();
-        }else{
-            result = true;
         }
+        else if(donar && bg){
+            Toast.makeText(this, "please select blood group",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            result=true;
+        }
+
         return result;
     }
 
-  private void sendUserData() {
 
-        int radioid= mgender.getCheckedRadioButtonId();
-        radiobutton =findViewById(radioid);
-        gender =(String) radiobutton.getText();
 
+    private void sendUserData() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-      DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid());
-      //FirebaseUser user =firebaseAuth.getCurrentUser();
-      dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender);
-        //mDatabaseReference.child(user.getUid()).setValue(userprofile);
+        DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid());
 
-      myref.setValue(userprofile);
-  }
+        dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender, donar,bloodgroup_record);
+        myref.setValue(userprofile);
+      }
 
 }
