@@ -164,13 +164,11 @@
         android:layout_width="207dp"
         android:layout_height="32dp"
 
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/save_prof"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroup_prof" />
@@ -213,7 +211,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/back_prof"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bloodgroup_prof" />
+        app:layout_constraintTop_toBottomOf="@+id/bg_view" />
 
     <Button
         android:id="@+id/back_prof"
@@ -229,12 +227,28 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_button"
         android:hint="@string/registerpageback"
-        android:textColorHint="@color/colorPrimaryDark"
 
+        android:textColorHint="@color/colorPrimaryDark"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/save_prof"
+        app:layout_constraintTop_toBottomOf="@+id/bg_view" />
+
+    <TextView
+        android:id="@+id/bg_view"
+        android:layout_width="210dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/textview"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bloodgroup_prof"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintBottom_toTopOf="@id/save_prof"/>
+
 </android.support.constraint.ConstraintLayout>

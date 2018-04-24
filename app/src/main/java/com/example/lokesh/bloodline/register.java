@@ -39,6 +39,7 @@ public class register extends AppCompatActivity
     private RadioButton radiobutton;
 
 
+
     String name,email,password,age,city,phone,gender,bloodgroup_record;
     boolean donar,bg;
     private DatabaseReference mDatabaseReference;
@@ -109,7 +110,6 @@ public class register extends AppCompatActivity
         EmailID = (EditText)findViewById(R.id.registerpageemail);
         reg_button =(Button)findViewById(R.id.registerpageregister);
         mPhone = (EditText) findViewById(R.id.registerpagephone);
-        
         mdonar = (CheckBox) findViewById(R.id.registerpagecheckbox);
         mbloodgroup=(Spinner) findViewById(R.id.registerpage_bloodgroup);
         male=(RadioButton) findViewById(R.id.registerpage_male);
@@ -160,5 +160,6 @@ public class register extends AppCompatActivity
         dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender, donar,bloodgroup_record);
         myref.setValue(userprofile);
       }
+
 
 }

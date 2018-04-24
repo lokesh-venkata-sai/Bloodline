@@ -10,7 +10,9 @@ public class dUserprofile {
     public boolean donar_status;
     public String blood_group;
 
+    public  dUserprofile(){
 
+    }
 
     public dUserprofile(String user_age, String user_name, String user_email, String user_phone, String user_city,String user_gender, boolean donar_status, String blood_group) {
         this.user_age = user_age;
@@ -79,6 +81,7 @@ public class dUserprofile {
     public void setDonar_status(boolean donar_status) {
         this.donar_status = donar_status;
     }
+
 
     public String getBlood_group() {
         return blood_group;
