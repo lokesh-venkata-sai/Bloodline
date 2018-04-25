@@ -1,7 +1,7 @@
 package com.example.lokesh.bloodline;
 
 import android.content.Intent;
-import android.graphics.Color;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,14 +24,14 @@ import com.google.firebase.database.ValueEventListener;
 public class profile extends AppCompatActivity implements View.OnClickListener{
 
     private Button back_prof,save_prof;
-    private Spinner bloodgroup_prof;
+    //private Spinner bloodgroup_prof;
     private EditText name_prof,email_prof,age_prof,phone_prof,city_prof;
     private RadioButton male_prof,female_prof;
     private CheckBox donar_prof;
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mFirebaseAuth;
     private RadioGroup mgender;
-    private String gender;
+    //private String gender;
     boolean donar;
     private TextView bg_viewprof;
 
@@ -79,14 +79,46 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
 
                 bg_viewprof.setText(userprofile.getBlood_group());
 
-
-
-
-            }
+                }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 //Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+
+        save_prof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name,email,age,city,phone,gender = null,bloodgroup_record;
+                boolean donar_status;
+
+                name=name_prof.getText().toString();
+                age=age_prof.getText().toString();
+                city=city_prof.getText().toString();
+                phone=phone_prof.getText().toString();
+                email=email_prof.getText().toString();
+
+                if(male_prof.isChecked())
+                    gender="male";
+                if(female_prof.isChecked())
+                    gender="female";
+
+                donar_status=donar_prof.isChecked();
+
+                    bloodgroup_record = bloodgroup_prof.getSelectedItem().toString();
+                if(bloodgroup_record.equalsIgnoreCase("none"))
+                    bloodgroup_record=bg_viewprof.getText().toString();
+
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference myref = firebaseDatabase.getReference(mFirebaseAuth.getUid());
+
+                dUserprofile update=new dUserprofile(age,name,email,phone,city,gender,donar_status,bloodgroup_record);
+                myref.setValue(update);
+                Intent mainIntent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(mainIntent);
+                finish();
             }
         });
     }
