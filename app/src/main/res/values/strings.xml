@@ -41,6 +41,10 @@
     <string name="todo">TODO</string>
     <string name="title_activity_donar">donar</string>
     <string name="textview">TextView</string>
+    <string name="bloodgroup_donar">enter blood group</string>
+    <string name="city_donar">enter city</string>
+    <string name="search_but">search</string>
+    <string name="gps">GPS</string>
 
 
 </resources>
