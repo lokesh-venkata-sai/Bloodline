@@ -45,6 +45,10 @@
     <string name="city_donar">enter city</string>
     <string name="search_but">search</string>
     <string name="gps">GPS</string>
+    <string name="name1">name</string>
+    <string name="city">city</string>
+    <string name="blgrp">blgrp</string>
+    <string name="phone">phone</string>
 
 
 </resources>
