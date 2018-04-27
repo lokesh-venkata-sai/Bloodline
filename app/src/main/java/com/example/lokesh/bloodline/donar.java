@@ -83,7 +83,7 @@ public class donar extends AppCompatActivity {
                String d_bg=bloodgroup_donar.getText().toString();
                String d_city=city_donar.getText().toString().trim();
                Log.i("User_name",d_city);
-             Query query =dbUsers.orderByChild("blood_group").equalTo(d_bg);
+             Query query =dbUsers.orderByChild("blood_group").equalTo(d_bg+"_"+d_city);
                query.addListenerForSingleValueEvent(valueEventListener);
            }
        });

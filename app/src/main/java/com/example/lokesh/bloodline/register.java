@@ -40,7 +40,7 @@ public class register extends AppCompatActivity
 
 
 
-    String name,email,password,age,city,phone,gender,bloodgroup_record;
+    String name,email,password,age,city,phone,gender,bloodgroup_record,bg_city;
     boolean donar,bg;
     private DatabaseReference mDatabaseReference;
     @Override
@@ -128,6 +128,7 @@ public class register extends AppCompatActivity
          phone    = mPhone.getText().toString();
          donar    = mdonar.isChecked();
 
+
          if(male.isChecked())
              gender="male";
          if(female.isChecked())
@@ -136,6 +137,8 @@ public class register extends AppCompatActivity
 
          bloodgroup_record = mbloodgroup.getSelectedItem().toString();
             bg =mbloodgroup.getSelectedItem().toString().equalsIgnoreCase("none");
+
+            bg_city=bloodgroup_record+"_"+city;
 
         if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || city.isEmpty()){
 
@@ -155,9 +158,10 @@ public class register extends AppCompatActivity
 
     private void sendUserData() {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
         DatabaseReference myref = firebaseDatabase.getReference(firebaseAuth.getUid());
 
-        dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender, donar,bloodgroup_record);
+        dUserprofile userprofile = new dUserprofile(age,name,email,phone,city,gender, donar,bloodgroup_record,bg_city);
         myref.setValue(userprofile);
       }
 

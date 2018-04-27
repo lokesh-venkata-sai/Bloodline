@@ -9,12 +9,13 @@ public class dUserprofile {
     public String user_gender;
     public boolean donar_status;
     public String blood_group;
+    public String user_bg_city;
 
     public  dUserprofile(){
 
     }
 
-    public dUserprofile(String user_age, String user_name, String user_email, String user_phone, String user_city,String user_gender, boolean donar_status, String blood_group) {
+    public dUserprofile(String user_age, String user_name, String user_email, String user_phone, String user_city,String user_gender, boolean donar_status, String blood_group,String user_bg_city) {
         this.user_age = user_age;
         this.user_name = user_name;
         this.user_email = user_email;
@@ -23,6 +24,7 @@ public class dUserprofile {
         this.user_gender=user_gender;
         this.donar_status =donar_status;
         this.blood_group =blood_group;
+        this.user_bg_city=user_bg_city;
 
     }
 
@@ -89,5 +91,13 @@ public class dUserprofile {
 
     public void setBlood_group(String blood_group) {
         this.blood_group = blood_group;
+    }
+
+    public String getUser_bg_city() {
+        return user_bg_city;
+    }
+
+    public void setUser_bg_city(String user_bg_city) {
+        this.user_bg_city = user_bg_city;
     }
 }

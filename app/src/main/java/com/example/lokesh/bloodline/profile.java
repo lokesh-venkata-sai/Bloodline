@@ -111,10 +111,12 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
                 if(bloodgroup_record.equalsIgnoreCase("none"))
                     bloodgroup_record=bg_viewprof.getText().toString();
 
+                String bg_city=bloodgroup_record+"_"+city;
+
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference myref = firebaseDatabase.getReference(mFirebaseAuth.getUid());
 
-                dUserprofile update=new dUserprofile(age,name,email,phone,city,gender,donar_status,bloodgroup_record);
+                dUserprofile update=new dUserprofile(age,name,email,phone,city,gender,donar_status,bloodgroup_record,bg_city);
                 myref.setValue(update);
                 Intent mainIntent=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(mainIntent);
