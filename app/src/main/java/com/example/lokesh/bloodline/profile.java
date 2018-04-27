@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -91,36 +92,38 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
         save_prof.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name,email,age,city,phone,gender = null,bloodgroup_record;
-                boolean donar_status;
+                if (validate()) {
+                    String name, email, age, city, phone, gender = null, bloodgroup_record;
+                    boolean donar_status;
 
-                name=name_prof.getText().toString();
-                age=age_prof.getText().toString();
-                city=city_prof.getText().toString();
-                phone=phone_prof.getText().toString();
-                email=email_prof.getText().toString();
+                    name = name_prof.getText().toString();
+                    age = age_prof.getText().toString();
+                    city = city_prof.getText().toString().trim().toLowerCase();
+                    phone = phone_prof.getText().toString();
+                    email = email_prof.getText().toString();
 
-                if(male_prof.isChecked())
-                    gender="male";
-                if(female_prof.isChecked())
-                    gender="female";
+                    if (male_prof.isChecked())
+                        gender = "male";
+                    if (female_prof.isChecked())
+                        gender = "female";
 
-                donar_status=donar_prof.isChecked();
+                    donar_status = donar_prof.isChecked();
 
                     bloodgroup_record = bloodgroup_prof.getSelectedItem().toString();
-                if(bloodgroup_record.equalsIgnoreCase("none"))
-                    bloodgroup_record=bg_viewprof.getText().toString();
+                    if (bloodgroup_record.equalsIgnoreCase("none"))
+                        bloodgroup_record = bg_viewprof.getText().toString();
 
-                String bg_city=bloodgroup_record+"_"+city;
+                    String bg_city = bloodgroup_record + "_" + city;
 
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference myref = firebaseDatabase.getReference(mFirebaseAuth.getUid());
+                    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                    DatabaseReference myref = firebaseDatabase.getReference(mFirebaseAuth.getUid());
 
-                dUserprofile update=new dUserprofile(age,name,email,phone,city,gender,donar_status,bloodgroup_record,bg_city);
-                myref.setValue(update);
-                Intent mainIntent=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(mainIntent);
-                finish();
+                    dUserprofile update = new dUserprofile(age, name, email, phone, city, gender, donar_status, bloodgroup_record, bg_city);
+                    myref.setValue(update);
+                    Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(mainIntent);
+                    finish();
+                }
             }
         });
     }
@@ -147,6 +150,44 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
         save_prof=(Button) findViewById(R.id.save_prof);
         mgender=(RadioGroup) findViewById(R.id.radioGroup_prof);
         bg_viewprof=(TextView) findViewById(R.id.bg_view);
+    }
+    private Boolean validate(){
+        Boolean result = false;
+        String age,email,city,phone,name,gender,bloodgroup_record;
+        boolean donar_st,bg;
+
+
+        name     = name_prof.getText().toString();
+        age      = age_prof.getText().toString();
+        email    = email_prof.getText().toString();
+        city     = city_prof.getText().toString().trim().toLowerCase();
+        phone    = phone_prof.getText().toString();
+        donar_st    = donar_prof.isChecked();
+
+
+        if(male_prof.isChecked())
+            gender="male";
+        if(female_prof.isChecked())
+            gender="female";
+
+
+        bloodgroup_record = bg_viewprof.getText().toString();
+       // bg =.getSelectedItem().toString().equalsIgnoreCase("none");
+
+        //bg_city=bloodgroup_record+"_"+city;
+
+        if(name.isEmpty()  || email.isEmpty() || age.isEmpty() || city.isEmpty()||phone.isEmpty()){
+
+            Toast.makeText(this, "please enter all the details",Toast.LENGTH_SHORT).show();
+        }
+        else if(donar && bloodgroup_record.isEmpty()){
+            Toast.makeText(this, "please select blood group",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            result=true;
+        }
+
+        return result;
     }
 
 }

@@ -32,10 +32,10 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         recycle_viewlist recycle_viewlist = recycle_viewlists.get(position);
 
-        holder.rview_name.setText(recycle_viewlist.getName());
-        holder.rview_phone.setText(recycle_viewlist.getPhone());
-        holder.rview_bloodgroup.setText(recycle_viewlist.getBlood_group());
-        holder.rview_city.setText(recycle_viewlist.getCity());
+        holder.rview_name.setText(recycle_viewlist.user_name);
+        holder.rview_phone.setText(recycle_viewlist.user_phone);
+        holder.rview_bloodgroup.setText(recycle_viewlist.blood_group);
+        holder.rview_city.setText(recycle_viewlist.user_city);
 
     }
 

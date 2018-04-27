@@ -25,16 +25,13 @@ import java.util.List;
 
 public class donar extends AppCompatActivity {
     private EditText city_donar,bloodgroup_donar;
-    private Switch gps;
+    private Button gps;
     private Button search,back;
 
     private RecyclerView recyclerView1;
     private RecyclerView.Adapter adapter;
 
     private List<recycle_viewlist> recycleViewlists;
-
-    DatabaseReference dbrlist;
-    FirebaseAuth mfirebaseauth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,30 +57,17 @@ public class donar extends AppCompatActivity {
         adapter = new recyclerAdapter( this,recycleViewlists);
         recyclerView1.setAdapter(adapter);
 
-        //dbrlist = FirebaseDatabase.getInstance().getReference();
-        //dbrlist.addListenerForSingleValueEvent(valueEventListener);
-
-
-        /*for(int i = 0; i<=10; i++)
-        {
-            recycle_viewlist recycle_viewlist = new recycle_viewlist(
-                    "suraj" + i+1,"98765432","O+","hyderabad");
-            recycleViewlists.add(recycle_viewlist);
-        }*/
 
         final DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference();
-
-        /* Query query3 = FirebaseDatabase.getInstance().getReference().getRoot()
-                .orderByChild("blood_group")
-                .equalTo("O+");*/
 
        search.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                String d_bg=bloodgroup_donar.getText().toString();
-               String d_city=city_donar.getText().toString().trim();
+               String d_city=city_donar.getText().toString().trim().toLowerCase();
                Log.i("User_name",d_city);
-             Query query =dbUsers.orderByChild("user_bg_city").equalTo(d_bg+"_"+d_city);
+               String q=d_bg+"_"+d_city;
+               Query query =dbUsers.orderByChild("user_bg_city").equalTo(q);
                query.addListenerForSingleValueEvent(valueEventListener);
            }
        });
@@ -97,17 +81,17 @@ public class donar extends AppCompatActivity {
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     recycle_viewlist artist = snapshot.getValue(recycle_viewlist.class);
-                    try{
-                        Log.i("Complete_info",snapshot.getValue().toString());
+                    try {
+                        Log.i("Complete_info", snapshot.getValue().toString());
+                    } catch (Exception e) {
+                        Log.i("exception", "Exception");
                     }
-                    catch(Exception e){
-                        Log.i("exception","Exception");
-                    }
-                    Log.i("blood_group_donor",artist.getBlood_group());
+                    Log.i("blood_group_donor", artist.blood_group);
                     recycleViewlists.add(artist);
                 }
                 adapter.notifyDataSetChanged();
             }
+
         }
 
         @Override
@@ -119,11 +103,9 @@ public class donar extends AppCompatActivity {
     private void setUI() {
         city_donar=(EditText) findViewById(R.id.city_donar);
         bloodgroup_donar=(EditText) findViewById(R.id.bloodgroup_donar);
-        gps=(Switch) findViewById(R.id.gps);
+        gps=(Button) findViewById(R.id.gps);
         search=(Button)findViewById(R.id.search_but);
         back=(Button) findViewById(R.id.back_donar);
 
     }
-
-
 }

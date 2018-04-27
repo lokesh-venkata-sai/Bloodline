@@ -2,33 +2,34 @@ package com.example.lokesh.bloodline;
 
 public class recycle_viewlist {
 
-    private String name;
-    private String phone;
-   private String blood_group;
-    private String city;
+    public String user_name;
+    public String user_phone;
+    public String blood_group;
+    public String user_city;
 
     public recycle_viewlist(){}
 
-    public recycle_viewlist(String name, String phone, String blood_group, String city) {
-        this.name = name;
-        this.phone = phone;
+    /*public recycle_viewlist(String name, String user_phone, String blood_group, String user_city) {
+        this.user_name = name;
+        this.user_phone = user_phone;
         this.blood_group = blood_group;
-        this.city = city;
+        this.user_city = user_city;
     }
 
     public String getName() {
-        return name;
+        return user_name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getuser_phone() {
+        return user_phone;
     }
 
     public String getBlood_group() {
         return blood_group;
     }
 
-    public String getCity() {
-        return city;
-    }
+    public String getuser_city() {
+
+        return user_city;
+    }*/
 }

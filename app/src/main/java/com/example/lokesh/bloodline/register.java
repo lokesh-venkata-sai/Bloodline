@@ -124,7 +124,7 @@ public class register extends AppCompatActivity
          password = Password.getText().toString();
          age      = mage.getText().toString();
          email    = EmailID.getText().toString();
-         city     = mcity.getText().toString();
+         city     = mcity.getText().toString().trim().toLowerCase();
          phone    = mPhone.getText().toString();
          donar    = mdonar.isChecked();
 
